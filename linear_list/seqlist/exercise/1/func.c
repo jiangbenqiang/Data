@@ -1,19 +1,13 @@
- ///
- /// @file    func.c
- /// @author  linjia
- /// @date    2020-05-15 16:31:56
- ///
-
 #include "func.h"
 
-void InitList(sqlist L)
-{
-	for(int i=0;i<L.length;i++)
-	{
-		L.data[i]=0;
-	}
-	L.length=0;
-}
+//void InitList(sqlist L)
+//{
+//	for(int i=0;i<L.length;i++)
+//	{
+//		L.data[i]=0;
+//	}
+//	L.length=0;
+//}
 
 sqlist Listcreate(sqlist L)
 {
@@ -53,3 +47,29 @@ void Listprint(sqlist L)
 	}
 	printf("\n");
 }
+
+int Findmin(sqlist L)
+{
+	if(0==L.length)
+	{
+		printf("SeqList is empty!\n");
+		return -1;
+	}
+	int i,pos;
+	elemtype* min=L.data;
+	//L.length==1
+	for(i=0;i<L.length;i++)
+	{
+		if(L.data[i]<*min)
+		{
+			//min=&L.data[i];
+			min=min+i;
+			pos=i;
+		}
+	}
+	elemtype e=*min;
+	L.data[pos]=L.data[L.length-1];
+	Listprint(L);
+	return e;
+}
+

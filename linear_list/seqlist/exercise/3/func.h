@@ -1,9 +1,3 @@
- ///
- /// @file    func.h
- /// @author  linjia
- /// @date    2020-05-15 16:29:31
- ///
- 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -16,7 +10,8 @@ typedef struct{
 	int length;
 }sqlist;
 
-void InitList(sqlist L);
+//void InitList(sqlist L);
 sqlist Listcreate(sqlist L);
 bool ListInsert(sqlist L,int i,int e);
 void Listprint(sqlist L);
+sqlist DleteTheData(sqlist L,int x);
