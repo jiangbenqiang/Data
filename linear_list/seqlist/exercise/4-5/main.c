@@ -12,10 +12,10 @@ int main()
 	printf("输入顺序表数据,数据个数不超过%d:\n",maxsize);
 	L=Listcreate(L);
 	//Listprint (L);
-	int x;
-	printf("输入想删除的数据:\n");
-	scanf("%d",&x);
-	L=DeleteTheData(L,x);
+	int s,t;
+	printf("输入想删除的数据范围s和t:\n");
+	scanf("%d %d",&s,&t);
+	L=DeleteStoTDatas(L,s,t);
 	Listprint(L);
 	return 0;
 }

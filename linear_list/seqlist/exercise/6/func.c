@@ -1,3 +1,9 @@
+ ///
+ /// @file    func.c
+ /// @author  linjia
+ /// @date    2020-05-15 16:31:56
+ ///
+
 #include "func.h"
 
 //void InitList(sqlist L)
@@ -48,21 +54,23 @@ void Listprint(sqlist L)
 	printf("\n");
 }
 
-sqlist DeleteTheData(sqlist L,int x)
+sqlist DeleteRepeatedData(sqlist L)//升序
 {
-	int i;
-	int count=0;
-	for(i=0;i<L.length;i++)
+	if(0==L.length)
 	{
-		if(L.data[i]==x)
+		printf("error");
+		exit(0);
+	}
+	int i,j;
+	for(i=0,j=1;j<L.length;j++)
+	{
+		if(L.data[i]!=L.data[j])
 		{
-			L.data[i]=0;
-			count++;
-		}
-		else{
-			L.data[i-count]=L.data[i];
+			i++;
+			L.data[i]=L.data[j];
 		}
 	}
-	L.length=L.length-count;
+	L.length=i+1;
 	return L;
 }
+

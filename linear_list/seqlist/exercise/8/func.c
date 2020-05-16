@@ -1,3 +1,9 @@
+ ///
+ /// @file    func.c
+ /// @author  linjia
+ /// @date    2020-05-15 16:31:56
+ ///
+
 #include "func.h"
 
 //void InitList(sqlist L)
@@ -48,21 +54,26 @@ void Listprint(sqlist L)
 	printf("\n");
 }
 
-sqlist DeleteTheData(sqlist L,int x)
+sqlist ListInversion(sqlist L)
 {
-	int i;
-	int count=0;
-	for(i=0;i<L.length;i++)
+	if(0==L.length)
 	{
-		if(L.data[i]==x)
-		{
-			L.data[i]=0;
-			count++;
-		}
-		else{
-			L.data[i-count]=L.data[i];
-		}
+		printf("error\n");
+		exit(0);
 	}
-	L.length=L.length-count;
+	int i=0;
+	int j=L.length-1;
+	int temp;
+	//while(i<((L.length/2)+1))
+	while(i<(L.length/2))//i从0开始不需要加1
+	{
+		temp=L.data[i];
+		L.data[i]=L.data[j];
+		L.data[j]=temp;
+		i++;
+		j--;
+		//不能用L.data[L.length]和L.length--,不然表长度会发生改变
+	}
 	return L;
 }
+

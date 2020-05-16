@@ -11,11 +11,8 @@ int main()
 	L.length=0;
 	printf("输入顺序表数据,数据个数不超过%d:\n",maxsize);
 	L=Listcreate(L);
-	//Listprint (L);
-	int x;
-	printf("输入想删除的数据:\n");
-	scanf("%d",&x);
-	L=DeleteTheData(L,x);
+	Listprint(L);
+	L=ListInversion(L);
 	Listprint(L);
 	return 0;
 }
